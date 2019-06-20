@@ -8,8 +8,9 @@
 int  main(int argc, char** argv)
 {
 	unsigned          N   = 1024;
-	float*            in  = (float*) malloc(sizeof(float) * N);
+	double*           in  = (double*) malloc(sizeof(double) * N);
 	Meow_FFT_Complex* out = (Meow_FFT_Complex*) malloc(sizeof(Meow_FFT_Complex) * N);
+	Meow_FFT_Complex* out2 = (Meow_FFT_Complex*) malloc(sizeof(Meow_FFT_Complex) * N);
 
 	// prepare data for "in" array.
 	
@@ -34,9 +35,6 @@ int  main(int argc, char** argv)
 		printf("%f %f\n",in[i], out[i].r);
 		}
 	
-	//meow_fft_real_i(fft_real, in, out);
-	// result is not scaled, need to divide all values by N
-
 	free(fft_real);
 	free(out);
 	free(in);
